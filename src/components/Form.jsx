@@ -12,6 +12,19 @@ const Form = () => {
     e.preventDefault();
     // formun içerisinde bulunan inputun değerine erişme
     const bookName = e.target[0].value;
+    if (!bookName) {
+      toast.info("Eklemek istediğiniz kitabın ismini giriniz!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
 
     // yeni bir kitap objesi oluşturduk
     const newBook = {
